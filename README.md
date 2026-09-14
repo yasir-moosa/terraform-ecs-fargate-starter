@@ -36,18 +36,18 @@ If you're learning Terraform + AWS ECS and want a small, real, working example (
 │   └── ecr_bootstrap/       # one-time: creates the ECR repo for your image
 │       ├── ecr_bootstrap.tf
 │       ├── ecr_variables.tf
-│       └── ecr_output.tf
+│       └── ecr_outputs.tf
 ├── app/
 │   ├── Dockerfile
 │   └── index.html
-└── terraform/
+└── infra/
     ├── main.tf
     ├── variables.tf
     └── modules/
-        ├── vpc/
-        ├── sg/
-        ├── alb/
-        └── ecs/
+        ├── vpc/   (vpc_main.tf, vpc_outputs.tf)
+        ├── sg/    (sg_main.tf, sg_variables.tf, sg_outputs.tf)
+        ├── alb/   (alb_main.tf, alb_variables.tf, alb_outputs.tf)
+        └── ecs/   (ecs_main.tf, ecs_variables.tf, ecs_outputs.tf)
 ```
 
 ## Getting started
@@ -84,12 +84,12 @@ docker push <account-id>.dkr.ecr.<your-region>.amazonaws.com/<your-repo-name>:la
 
 > **Windows PowerShell users:** if `docker login` fails with `400 Bad Request`, wrap the command in `cmd /c "..."`. PowerShell's pipeline can corrupt the auth token.
 
-Before building, update the backend bucket name in `terraform/main.tf` to match what you created in Step 1.
+Before building, update the backend bucket name in `infra/main.tf` to match what you created in Step 1.
 
 ### 4. Deploy the infrastructure
 
 ```bash
-cd terraform
+cd infra
 terraform init
 terraform plan
 terraform apply
@@ -105,11 +105,11 @@ curl http://<alb_dns_name>
 ### 6. Tear it down
 
 ```bash
-cd terraform
+cd infra
 terraform destroy
 ```
 
-This only destroys the VPC/ALB/ECS infrastructure. The S3 bucket and ECR repo from Steps 1-2 are left alone, since they're meant to be reused (rebuild the `terraform/` part as many times as you like without recreating those every time).
+This only destroys the VPC/ALB/ECS infrastructure. The S3 bucket and ECR repo from Steps 1-2 are left alone, since they're meant to be reused (rebuild the `infra/` part as many times as you like without recreating those every time).
 
 ## Notes on the design
 
