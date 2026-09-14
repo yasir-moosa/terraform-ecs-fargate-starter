@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "this" {
 
   tags = {
 
-    Project = "ecs-pratice"
+    Project = "ecs-practice"
 
   }
 
