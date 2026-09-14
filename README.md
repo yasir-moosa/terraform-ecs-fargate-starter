@@ -1,13 +1,13 @@
 # Terraform ECS Fargate Starter
 
-A minimal, complete reference project for deploying a containerized app on **AWS ECS Fargate** using **Terraform**, with a remote S3 state backend. Built to be a clear, working starting point for anyone learning how these pieces fit together: VPC, security groups, an Application Load Balancer, and ECS Fargate, all wired up from scratch.
+A minimal, complete reference project for deploying a containerized app on **AWS ECS Fargate** using **Terraform** with a remote S3 state backend. Built to be a clear, working starting point for anyone learning how these pieces fit together: VPC, security groups, an Application Load Balancer and ECS Fargate - all wired up from scratch.
 
-If you're learning Terraform + AWS ECS and want a small, real, working example (rather than a huge production-grade module you can't follow), this is for you. Clone it, deploy it, read through it, break it, rebuild it. That's the intended use.
+If you're learning Terraform + AWS ECS and want a small, real, working example (rather than a huge production-grade module you can't follow). This is for you. Clone it, deploy it, read through it, break it, rebuild it. That's the intended use.
 
 ## What it deploys
 
 - A VPC with public and private subnets across two Availability Zones
-- A NAT Gateway (so private-subnet tasks can reach the internet, e.g. to pull images)
+- A NAT Gateway (so private-subnet tasks can reach the internet e.g. to pull images)
 - Least-privilege security groups (ALB and ECS task, separated)
 - An Application Load Balancer, routing traffic to...
 - An ECS Fargate service running a container built from this repo's own tiny app
