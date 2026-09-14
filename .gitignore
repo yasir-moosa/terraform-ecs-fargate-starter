@@ -1,0 +1,7 @@
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+curl success.png
+success screenshot.png
+Terraform_Practice_Project_Guide.pdf
