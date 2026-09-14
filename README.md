@@ -14,9 +14,9 @@ If you're learning Terraform + AWS ECS and want a small, real, working example (
 
 ## Screenshots
 
-*Add a screenshot of the app working in a browser (via the ALB DNS name) here.*
+*Will add picture later - the app working in a browser (via the ALB DNS name).*
 
-*Add a screenshot of a successful `curl` output here.*
+*Will add picture later - a successful `curl` output.*
 
 ## Prerequisites
 
